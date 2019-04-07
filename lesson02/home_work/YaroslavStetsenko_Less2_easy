@@ -1,0 +1,76 @@
+__author__ = 'Yaroslav Stetsenko'
+
+# Задача-1:
+# Дан список фруктов.
+# Напишите программу, выводящую фрукты в виде нумерованного списка,
+# выровненного по правой стороне.
+
+# Пример:
+# Дано: ["яблоко", "банан", "киви", "арбуз"]
+# Вывод:
+# 1. яблоко
+# 2.  банан
+# 3.   киви
+# 4.  арбуз
+
+# Подсказка: воспользоваться методом .format()
+
+def MaxLen(ElemList):
+    MaxLen = 0
+    for elem in ElemList:
+        if len(elem) > MaxLen:
+            MaxLen = len(elem)
+    return MaxLen
+
+Fruits_list = ["яблоко", "банан", "киви", "арбуз"]
+
+MaxLen = MaxLen(Fruits_list)
+
+for itm, fruit in enumerate(Fruits_list):
+    separator = ' ' * (MaxLen - len(fruit) + 1)
+    format_str = '{0}.{1}{2}'.format(itm + 1, separator, fruit) 
+    print(format_str)
+
+print('-' * 30)
+
+# Задача-2:
+# Даны два произвольные списка.
+# Удалите из первого списка элементы, присутствующие во втором списке.
+
+var_list1 = [1, 2 , 3, 4, 7, 6, 8]
+var_list2 = [5, 4 , 3, 6]
+
+i = 0
+while i <= len(var_list1)-1:
+    itm = var_list1[i]
+
+    j = 0
+    while j <= len(var_list2)-1:
+        if itm == var_list2[j]:
+            var_list1.pop(i)
+            break
+        else:
+            j += 1
+    else:
+        i += 1
+print(var_list1)
+
+print('-' * 30)
+
+# Задача-3:
+# Дан произвольный список из целых чисел.
+# Получите НОВЫЙ список из элементов исходного, выполнив следующие условия:
+# если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
+
+var_list = [1, 2, 3, 4, 5, 6]
+var_newlist = []
+
+for itm in var_list:
+    if itm % 2 == 0:
+        var_newlist.append(itm / 4)
+    else:
+        var_newlist.append(itm * 2)
+
+print(var_newlist)
+        
+            
